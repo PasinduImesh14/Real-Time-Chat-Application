@@ -8,12 +8,26 @@ body {
 }
 
 .background {
+  position: relative;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(75deg, rgb(20, 23, 33) 0%, rgb(20, 23, 33) 50%, rgba(20, 23, 33,0.8) 100%);
-  /* Vertical center */
   display: table-cell;
   vertical-align: middle;
+  overflow: hidden; /* Ensure the image does not overflow the container */
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/background.jpg');
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Centers the image */
+  opacity: 0.5; /* Adjust opacity (0 = fully transparent, 1 = fully opaque) */
+  z-index: -1; /* Ensures the image is behind the content */
 }
 
 .form-card {
@@ -23,21 +37,26 @@ body {
 }
 
 .form-title { 
-  font-size: 42px; 
-  font-family: 'Avenir'; 
-  font-weight: 800; 
-  letter-spacing: 0.5px; 
-  color: #e8e8e8; 
-  padding-bottom: 12px; 
+  font-size: 48px; /* Slightly larger for impact */
+  font-family: 'Poppins', sans-serif; /* Modern and clean font */
+  font-weight: 700; /* Bold, but slightly less heavy for balance */
+  letter-spacing: 1px; /* Increase spacing for elegance */
+  color: #ffffff; /* Keep white or change based on background */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
+  padding-bottom: 12px;
+  
 }
 
+/* Subtitle (description or tagline) */
 .form-subtitle {
-  font-size: 18px;
-  font-family: 'Avenir';
-  letter-spacing: 0.5px;
-  color: #afafaf;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif; /* Matching font for consistency */
+  letter-spacing: 0.8px;
+  color: #2e2e2e; /* Light grey for subtle contrast */
   padding-bottom: 24px;
+
 }
+
 
 .auth {
   position: relative;
@@ -67,19 +86,18 @@ body {
 }
 .auth-button {
   width: 100%;
-  height: 53px;
-  color: white;
-  background-color: #fa541c;
+  padding: 15px;
   border: none;
-  outline: none;
-  border-radius: 8px;
-  font-family: "Avenir";
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  background-color: #4caf50; /* Vibrant green for a positive action */
+  color: #ffffff; /* White text for contrast */
   cursor: pointer;
-  transition: all .44s ease;
-  -webkit-transition: all .44s ease;
-  -moz-transition: all .44s ease;
+  transition: background-color 0.3s ease;
 }
-.auth-button:hover { filter: brightness(145%); }
+.auth-button:hover { filter: brightness(115%); }
 
 .chat-wrapper {
   height: 80vh; 
